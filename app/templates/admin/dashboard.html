@@ -1,0 +1,15 @@
+{% extends 'admin/master.html' %}
+
+{% block page_title %}<h2 class="mb-1">Dashboard</h2><p class="text-muted mb-4">Mudzi Rural District Council website administration</p>{% endblock %}
+{% block body %}
+<div class="row">
+  {% for label, value in counts.items() %}
+  <div class="col-sm-6 col-lg mb-3">
+    <div class="card h-100 shadow-sm" style="border-top:4px solid {% if loop.index is odd %}#176b3a{% else %}#f6c945{% endif %};">
+      <div class="card-body"><div class="text-muted">{{ label }}</div><div style="color:#45535b;font-size:2rem;font-weight:700;">{{ value }}</div></div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<div class="card shadow-sm border-0 mt-3"><div class="card-body"><h5>Manage website content</h5><p class="mb-3 text-muted">Use the Website content menu to edit the records imported from the current site or add new content.</p><a class="btn" style="background:#176b3a;color:#fff;" href="{{ url_for('admin_news.index_view') }}">Manage content</a></div></div>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% set current_page = 'governance' %}
+
+{% block title %}Governance - Mudzi Rural District Council{% endblock %}
+
+{% block content %}
+{% include 'includes/site_header.html' %}
+
+<main>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>{{ sections.get('introduction').title if sections.get('introduction') else 'Governance' }}</h1>
+      <p>{{ sections.get('introduction').subtitle if sections.get('introduction') else 'Transparent leadership and accountable administration for the people of Mudzi District.' }}</p>
+    </div>
+  </section>
+
+  <!-- Governance Overview -->
+  <section class="content-section">
+    <div class="container">
+      <div class="governance-overview" data-aos="fade-up">
+        <img src="https://hwedzardc.org/images/councilpic.jpg" alt="Council meeting">
+        <div class="governance-text">
+          <h2>Our Governance Structure</h2>
+          <p>Mudzi Rural District Council is committed to good governance through transparent, participatory and accountable leadership. Our governance framework ensures that all operations are conducted within the provisions of the Urban Councils Act and the Rural District Councils Act.</p>
+          <p>{{ sections.get('introduction').content if sections.get('introduction') else 'The Council is composed of elected councillors who represent the various wards within the district.' }}</p>
+          <p>We believe in inclusive governance that gives every resident a voice in the decision-making processes that affect their lives and livelihoods.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Governance Pillars -->
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-heading" data-aos="fade-up">
+        <p class="eyebrow">Pillars of Governance</p>
+        <h2>Our Leadership Framework</h2>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://hwedzardc.org/images/fullcouncil.jpeg" alt="Full Council">
+          <div class="service-card-body">
+            <h3>Full Council</h3>
+            <p>The supreme policy-making body of the Council comprising all elected councillors. Full Council meetings are held quarterly to deliberate on key policy issues.</p>
+          </div>
+        </article>
+        <article class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://hwedzardc.org/images/meeting.jpeg" alt="Committees">
+          <div class="service-card-body">
+            <h3>Council Committees</h3>
+            <p>Specialized committees handle finance, human resources, environmental management, and social services to ensure thorough oversight of all council functions.</p>
+          </div>
+        </article>
+        <article class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <img src="https://hwedzardc.org/images/CEO.jpg" alt="Management Team">
+          <div class="service-card-body">
+            <h3>Management Team</h3>
+            <p>Led by the Chief Executive Officer, the management team implements council decisions and oversees the day-to-day operations of the council.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container" data-aos="fade-up">
+      <p class="eyebrow">Learn More</p>
+      <h2>Meet our Council Members and Management Team</h2>
+      <a class="cta-btn" href="{{ url_for('main.council') }}">View Council <span>→</span></a>
+    </div>
+  </section>
+</main>
+
+{% include 'includes/site_footer.html' %}
+{% endblock %}

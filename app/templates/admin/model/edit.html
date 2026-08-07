@@ -1,0 +1,7 @@
+{% extends 'admin/master.html' %}
+{% import 'admin/lib.html' as lib with context %}
+{% block head %}{{ super() }}{{ lib.form_css() }}{% endblock %}
+{% block body %}
+<ul class="nav nav-tabs"><li class="nav-item"><a href="{{ return_url }}" class="nav-link">List</a></li><li class="nav-item"><a href="javascript:void(0)" class="nav-link active">Edit</a></li>{% if admin_view.can_view_details %}<li class="nav-item"><a class="nav-link" href="{{ get_url('.details_view', id=request.args.get('id'), url=return_url) }}">Details</a></li>{% endif %}</ul>
+{% call lib.form_tag() %}{{ lib.render_form_fields(form, form_opts=form_opts) }}<input type="submit" class="btn btn-primary" value="Save"><input name="_add_another" type="submit" class="btn btn-secondary" value="Save and Add Another"><a href="{{ return_url }}" class="btn btn-danger">Cancel</a>{% endcall %}
+{% endblock %}{% block tail %}{{ super() }}{{ lib.form_js() }}{% endblock %}

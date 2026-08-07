@@ -1,0 +1,233 @@
+<!-- Navigation -->
+<nav class="site-nav">
+  <div class="nav-inner">
+
+    <!-- Logo + Title -->
+    <div class="logo-area">
+      <img src="{{ url_for('static', filename='images/logo/mrdc.webp') }}" alt="Mudzi RDC Logo">
+      <h1>Mudzi Rural District Council</h1>
+    </div>
+
+    <!-- Desktop Menu + Hamburger -->
+    <div style="display:flex;align-items:center;">
+
+      <!-- Desktop Menu -->
+      <ul class="desktop-menu">
+
+        <li>
+          <a href="{{ url_for('main.index') }}"
+            {% if current_page=='home' %}class="active"{% endif %}>
+            Home
+          </a>
+        </li>
+
+        <!-- Governance -->
+        <li>
+          <a href="{{ url_for('main.governance') }}"
+            {% if current_page=='governance' %}class="active"{% endif %}
+            onclick="toggleMenu(event,'gov-menu','{{ url_for('main.governance') }}')">
+            Governance
+          </a>
+
+          <ul id="gov-menu" class="dropdown-menu">
+            <li><a href="{{ url_for('main.council') }}">Council</a></li>
+            <li><a href="{{ url_for('main.management') }}">Management</a></li>
+            <li><a href="{{ url_for('main.awards') }}">Awards</a></li>
+          </ul>
+        </li>
+
+        <!-- Publications -->
+        <li>
+          <a href="{{ url_for('publications.index') }}"
+            {% if current_page=='publications' %}class="active"{% endif %}
+            onclick="toggleMenu(event,'pub-menu','{{ url_for('publications.index') }}')">
+            Publications
+          </a>
+
+          <ul id="pub-menu" class="dropdown-menu">
+            <li><a href="{{ url_for('main.application') }}">Online Application Form</a></li>
+            <li><a href="#">Client Charter</a></li>
+            <li><a href="#">Master Plan</a></li>
+            <li><a href="#">Strategic Management</a></li>
+            <li><a href="#">Annual Plan</a></li>
+          </ul>
+        </li>
+
+        <!-- Projects -->
+        <li>
+          <a href="{{ url_for('projects.index') }}"
+            {% if current_page=='projects' %}class="active"{% endif %}
+            onclick="toggleMenu(event,'projects-menu','{{ url_for('projects.index') }}')">
+            Projects
+          </a>
+
+          <ul id="projects-menu" class="dropdown-menu">
+            <li><a href="{{ url_for('projects.index') }}#ongoing">Ongoing Projects</a></li>
+            <li><a href="{{ url_for('projects.index') }}#completed">Completed Projects</a></li>
+            <li><a href="{{ url_for('projects.index') }}#upcoming">Upcoming Projects</a></li>
+          </ul>
+        </li>
+
+        <!-- Investment -->
+        <li>
+          <a href="{{ url_for('investments.index') }}"
+            {% if current_page=='investment' %}class="active"{% endif %}
+            onclick="toggleMenu(event,'inv-menu','{{ url_for('investments.index') }}')">
+            Investment
+          </a>
+
+          <ul id="inv-menu" class="dropdown-menu">
+            <li><a href="{{ url_for('investments.index') }}#agriculture">Agriculture</a></li>
+            <li><a href="{{ url_for('investments.index') }}#mining">Mining</a></li>
+            <li><a href="{{ url_for('investments.index') }}#tourism">Tourism</a></li>
+            <li><a href="{{ url_for('investments.index') }}#renewable-energy">Renewable Energy</a></li>
+            <li><a href="{{ url_for('investments.index') }}#infrastructure">Infrastructure</a></li>
+          </ul>
+        </li>
+
+        <!-- Stands -->
+        <li>
+          <a href="{{ url_for('stands.index') }}"
+            {% if current_page=='stands' %}class="active"{% endif %}>
+            Stands
+          </a>
+        </li>
+
+        <!-- News -->
+        <li>
+          <a href="{{ url_for('news.index') }}"
+            {% if current_page=='news' %}class="active"{% endif %}
+            onclick="toggleMenu(event,'news-menu','{{ url_for('news.index') }}')">
+            News
+          </a>
+
+          <ul id="news-menu" class="dropdown-menu">
+            <li><a href="{{ url_for('news.index') }}">Latest News</a></li>
+            <li><a href="{{ url_for('news.index') }}#vacancies">Vacancies</a></li>
+          </ul>
+        </li>
+
+        <!-- Contact -->
+        <li>
+          <a href="{{ url_for('contact.index') }}"
+            {% if current_page=='contact' %}class="active"{% endif %}
+            onclick="toggleMenu(event,'contact-menu','{{ url_for('contact.index') }}')">
+            Contact Us
+          </a>
+
+          <ul id="contact-menu" class="dropdown-menu">
+            <li><a href="{{ url_for('contact.index') }}#faqs">FAQs</a></li>
+          </ul>
+        </li>
+
+      </ul>
+
+<!-- Hamburger -->
+      <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- ================= Mobile Menu ================= -->
+
+  <ul id="mobile-menu" class="mobile-menu">
+
+    <li><a href="{{ url_for('main.index') }}">Home</a></li>
+
+    <!-- Governance -->
+    <li>
+      <div class="mobile-dropdown-header">
+        <a href="{{ url_for('main.governance') }}">Governance</a>
+        <button class="mobile-dropdown-toggle"
+          onclick="toggleMobileSubmenu('gov-mobile')">▾</button>
+      </div>
+
+      <ul id="gov-mobile" class="mobile-submenu">
+        <li><a href="{{ url_for('main.council') }}">Council</a></li>
+        <li><a href="{{ url_for('main.management') }}">Management</a></li>
+        <li><a href="{{ url_for('main.awards') }}">Awards</a></li>
+      </ul>
+    </li>
+
+    <!-- Publications -->
+    <li>
+      <div class="mobile-dropdown-header">
+        <a href="{{ url_for('publications.index') }}">Publications</a>
+        <button class="mobile-dropdown-toggle"
+          onclick="toggleMobileSubmenu('pub-mobile')">▾</button>
+      </div>
+
+      <ul id="pub-mobile" class="mobile-submenu">
+        <li><a href="{{ url_for('main.application') }}">Online Application Form</a></li>
+        <li><a href="#">Client Charter</a></li>
+        <li><a href="#">Master Plan</a></li>
+        <li><a href="#">Strategic Management</a></li>
+        <li><a href="#">Annual Plan</a></li>
+      </ul>
+    </li>
+
+    <!-- Projects -->
+    <li>
+      <div class="mobile-dropdown-header">
+        <a href="{{ url_for('projects.index') }}">Projects</a>
+        <button class="mobile-dropdown-toggle"
+          onclick="toggleMobileSubmenu('projects-mobile')">▾</button>
+      </div>
+
+      <ul id="projects-mobile" class="mobile-submenu">
+        <li><a href="{{ url_for('projects.index') }}#ongoing">Ongoing Projects</a></li>
+        <li><a href="{{ url_for('projects.index') }}#completed">Completed Projects</a></li>
+        <li><a href="{{ url_for('projects.index') }}#upcoming">Upcoming Projects</a></li>
+      </ul>
+    </li>
+
+    <!-- Investment -->
+    <li>
+      <div class="mobile-dropdown-header">
+        <a href="{{ url_for('investments.index') }}">Investment</a>
+        <button class="mobile-dropdown-toggle"
+          onclick="toggleMobileSubmenu('inv-mobile')">▾</button>
+      </div>
+
+      <ul id="inv-mobile" class="mobile-submenu">
+        <li><a href="{{ url_for('investments.index') }}#agriculture">Agriculture</a></li>
+        <li><a href="{{ url_for('investments.index') }}#mining">Mining</a></li>
+        <li><a href="{{ url_for('investments.index') }}#tourism">Tourism</a></li>
+        <li><a href="{{ url_for('investments.index') }}#renewable-energy">Renewable Energy</a></li>
+        <li><a href="{{ url_for('investments.index') }}#infrastructure">Infrastructure</a></li>
+      </ul>
+    </li>
+
+    <li><a href="{{ url_for('stands.index') }}">Stands</a></li>
+
+    <!-- News -->
+    <li>
+      <div class="mobile-dropdown-header">
+        <a href="{{ url_for('news.index') }}">News</a>
+        <button class="mobile-dropdown-toggle"
+          onclick="toggleMobileSubmenu('news-mobile')">▾</button>
+      </div>
+
+      <ul id="news-mobile" class="mobile-submenu">
+        <li><a href="{{ url_for('news.index') }}">Latest News</a></li>
+        <li><a href="{{ url_for('news.index') }}#vacancies">Vacancies</a></li>
+      </ul>
+    </li>
+
+    <!-- Contact -->
+    <li>
+      <div class="mobile-dropdown-header">
+        <a href="{{ url_for('contact.index') }}">Contact Us</a>
+        <button class="mobile-dropdown-toggle"
+          onclick="toggleMobileSubmenu('contact-mobile')">▾</button>
+      </div>
+
+      <ul id="contact-mobile" class="mobile-submenu">
+        <li><a href="{{ url_for('contact.index') }}#faqs">FAQs</a></li>
+      </ul>
+    </li>
+
+  </ul>
+</nav>

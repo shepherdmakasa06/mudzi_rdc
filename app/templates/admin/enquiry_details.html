@@ -1,0 +1,18 @@
+{% extends 'admin/master.html' %}
+{% import 'admin/lib.html' as lib with context %}
+
+{% block body %}
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link" href="{{ return_url }}">List</a></li><li class="nav-item"><a class="nav-link active disabled" href="javascript:void(0)">Details</a></li></ul>
+<table class="table table-hover table-bordered mt-3">
+  {% for c, name in details_columns %}
+  <tr><td><b>{{ name }}</b></td><td>{{ get_value(model, c) }}</td></tr>
+  {% endfor %}
+</table>
+{% if not model.is_resolved %}
+<form action="{{ get_url('.resolve_view', id=model.id, url=return_url) }}" method="post">
+  <button class="btn btn-success" type="submit"><i class="fa-solid fa-check"></i> Mark as resolved</button>
+</form>
+{% else %}
+<p class="alert alert-success">This enquiry has been marked as resolved.</p>
+{% endif %}
+{% endblock %}

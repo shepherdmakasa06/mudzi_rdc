@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% set current_page = 'stands' %}
+
+{% block title %}Stands - Mudzi Rural District Council{% endblock %}
+
+{% block content %}
+{% include 'includes/site_header.html' %}
+
+<main>
+  <section class="page-header">
+    <div class="container">
+      <h1>Available Stands</h1>
+      <p>Explore residential, commercial and industrial stands available for allocation in Mudzi District.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="section-heading" data-aos="fade-up">
+        <p class="eyebrow">Property</p>
+        <h2>Residential Stands</h2>
+        <p>The Council has a number of serviced residential stands available for allocation in various growth points and business centres across the district.</p>
+      </div>
+
+      <div class="stands-grid">
+        <div class="stand-card" data-aos="fade-up" data-aos-delay="100">
+          <h3>Kotwa Growth Point - Phase 1</h3>
+          <p>Serviced residential stands with water and road access. Stand sizes range from 300m² to 500m².</p>
+          <p class="stand-price">From $500.00</p>
+          <span class="stand-status available">Available</span>
+        </div>
+        <div class="stand-card" data-aos="fade-up" data-aos-delay="200">
+          <h3>Kotwa Growth Point - Phase 2</h3>
+          <p>New development with modern infrastructure planning. Stand sizes from 400m² to 600m².</p>
+          <p class="stand-price">From $650.00</p>
+          <span class="stand-status available">Available</span>
+        </div>
+        <div class="stand-card" data-aos="fade-up" data-aos-delay="300">
+          <h3>Sadza Business Centre</h3>
+          <p>Residential stands in the growing Sadza area with good road network and access to amenities.</p>
+          <p class="stand-price">From $350.00</p>
+          <span class="stand-status available">Available</span>
+        </div>
+        <div class="stand-card" data-aos="fade-up" data-aos-delay="100">
+          <h3>Dendende Growth Point</h3>
+          <p>Well-planned residential area with proximity to schools, clinics and commercial facilities.</p>
+          <p class="stand-price">From $400.00</p>
+          <span class="stand-status available">Available</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="container">
+      <div class="section-heading" data-aos="fade-up">
+        <p class="eyebrow">Business</p>
+        <h2>Commercial &amp; Industrial Stands</h2>
+        <p>Prime commercial and industrial stands strategically located for business growth and development.</p>
+      </div>
+
+      <div class="stands-grid">
+        <div class="stand-card" data-aos="fade-up" data-aos-delay="100">
+          <h3>Kotwa CBD - Commercial</h3>
+          <p>Prime commercial stands in the central business district ideal for retail, offices and service businesses.</p>
+          <p class="stand-price">From $1,200.00</p>
+          <span class="stand-status available">Available</span>
+        </div>
+        <div class="stand-card" data-aos="fade-up" data-aos-delay="200">
+          <h3>Industrial Area - Light Industry</h3>
+          <p>Industrial stands suitable for manufacturing, warehousing and light industrial activities.</p>
+          <p class="stand-price">From $2,000.00</p>
+          <span class="stand-status available">Available</span>
+        </div>
+        <div class="stand-card" data-aos="fade-up" data-aos-delay="300">
+          <h3>Market Area Stands</h3>
+          <p>Designated market stands for vendors and small businesses at various growth points.</p>
+          <p class="stand-price">From $200.00</p>
+          <span class="stand-status available">Available</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container" data-aos="fade-up">
+      <p class="eyebrow">Apply Now</p>
+      <h2>Interested in acquiring a stand? Submit your application today.</h2>
+      <a class="cta-btn" href="{{ url_for('main.application') }}">Apply Online <span>→</span></a>
+    </div>
+  </section>
+</main>
+
+{% include 'includes/site_footer.html' %}
+{% endblock %}

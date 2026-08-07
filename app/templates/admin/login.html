@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin sign in | Mudzi RDC</title>
+  <style>
+    body { align-items: center; background: #f3f6f8; display: flex; font-family: Arial, sans-serif; justify-content: center; margin: 0; min-height: 100vh; }
+    main { background: #fff; border-radius: 10px; box-shadow: 0 8px 30px #1b3a4b26; box-sizing: border-box; max-width: 420px; padding: 2.25rem; width: calc(100% - 2rem); }
+    h1 { color: #123b5d; font-size: 1.5rem; margin: 0 0 .5rem; } p { color: #5c6870; margin-top: 0; } label { display: block; font-weight: bold; margin: 1rem 0 .4rem; }
+    input { border: 1px solid #b8c3cb; border-radius: 5px; box-sizing: border-box; font-size: 1rem; padding: .75rem; width: 100%; }
+    button { background: #12683d; border: 0; border-radius: 5px; color: white; cursor: pointer; font-size: 1rem; font-weight: bold; margin-top: 1.5rem; padding: .8rem; width: 100%; }
+    .alert { background: #fde8e7; border-radius: 5px; color: #8c1d18; padding: .75rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <img src="{{ url_for('static', filename='images/logo/mrdc.webp') }}" alt="Mudzi RDC logo" style="display:block;height:76px;margin:0 auto 1rem;max-width:100%;object-fit:contain;">
+    <h1 style="text-align:center;">Mudzi RDC Administration</h1>
+    <p>Sign in to manage website content.</p>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}<div class="alert">{{ message }}</div>{% endfor %}
+    {% endwith %}
+    <form method="post">
+      <label for="username">Username</label>
+      <input id="username" name="username" autocomplete="username" required autofocus>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" autocomplete="current-password" required>
+      <button type="submit">Sign in</button>
+    </form>
+  </main>
+</body>
+</html>

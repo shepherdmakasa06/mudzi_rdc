@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% set current_page = 'publications' %}
+
+{% block title %}Online Application - Mudzi Rural District Council{% endblock %}
+
+{% block content %}
+{% include 'includes/site_header.html' %}
+
+<main>
+  <section class="page-header">
+    <div class="container">
+      <h1>Online Application Form</h1>
+      <p>Submit your application for stands, building plans, business permits and other council services.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="application-form" data-aos="fade-up">
+        <h3>Application Details</h3>
+        <p>Please fill in all required fields accurately. You will receive a confirmation email once your application has been received.</p>
+
+        <form action="#" method="POST">
+          <!-- Personal Info -->
+          <h3 style="margin-top:32px;font-size:1.1rem;color:var(--blue-600);border-bottom:2px solid var(--blue-50);padding-bottom:8px;">Personal Information</h3>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first_name">First Name *</label>
+              <input type="text" id="first_name" name="first_name" placeholder="Enter first name" required>
+            </div>
+            <div class="form-group">
+              <label for="last_name">Last Name *</label>
+              <input type="text" id="last_name" name="last_name" placeholder="Enter last name" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="app_email">Email Address *</label>
+              <input type="email" id="app_email" name="email" placeholder="Enter email address" required>
+            </div>
+            <div class="form-group">
+              <label for="app_phone">Phone Number *</label>
+              <input type="tel" id="app_phone" name="phone" placeholder="Enter phone number" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="id_number">National ID Number *</label>
+              <input type="text" id="id_number" name="id_number" placeholder="e.g. 63-123456 A 78" required>
+            </div>
+            <div class="form-group">
+              <label for="address">Physical Address *</label>
+              <input type="text" id="address" name="address" placeholder="Enter your current address" required>
+            </div>
+          </div>
+
+          <!-- Application Details -->
+          <h3 style="margin-top:32px;font-size:1.1rem;color:var(--blue-600);border-bottom:2px solid var(--blue-50);padding-bottom:8px;">Application Type</h3>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="app_type">Type of Application *</label>
+              <select id="app_type" name="app_type" required>
+                <option value="">Select application type</option>
+                <option value="residential_stand">Residential Stand</option>
+                <option value="commercial_stand">Commercial Stand</option>
+                <option value="industrial_stand">Industrial Stand</option>
+                <option value="building_plan">Building Plan Approval</option>
+                <option value="business_permit">Business Permit</option>
+                <option value="water_connection">Water Connection</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="preferred_area">Preferred Area / Location</label>
+              <select id="preferred_area" name="preferred_area">
+                <option value="">Select preferred area</option>
+                <option value="hwedza_gp">Kotwa Growth Point</option>
+                <option value="sadza">Sadza Business Centre</option>
+                <option value="dendende">Dendende Growth Point</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="app_details">Additional Details</label>
+            <textarea id="app_details" name="details" placeholder="Provide any additional information about your application..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn" style="margin-top:8px;">
+            <i class="fas fa-paper-plane"></i> Submit Application
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% include 'includes/site_footer.html' %}
+{% endblock %}

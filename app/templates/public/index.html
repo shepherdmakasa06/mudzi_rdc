@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% set current_page = 'home' %}
+{% block content %}
+{% include 'includes/site_header.html' %}
+<main>
+  {% set hero = sections.get('hero') %}
+  <section class="hero" style="background-image:url('https://hwedzardc.org/images/hrdc.jpeg');"><div class="hero-content" data-aos="fade-up"><span class="eyebrow">{{ hero.subtitle if hero else 'Welcome to MUDZI RDC' }}</span><h2>{{ hero.title if hero else 'Welcome to Mudzi RDC' }}</h2><p>{{ hero.content if hero else '' }}</p><a class="hero-btn" href="#services">Explore Our Services <span aria-hidden="true">→</span></a></div></section>
+  <div class="vision-strip" data-aos="fade-up" data-aos-delay="200">
+    {% for key, icon in [('vision', 'fa-eye'), ('mission', 'fa-bullseye'), ('core-values', 'fa-heart')] %}{% set section = sections.get(key) %}{% if section %}<div class="vision-card"><div class="card-icon"><i class="fas {{ icon }}"></i></div><h3>{{ section.title }}</h3><p>{{ section.content }}</p></div>{% endif %}{% endfor %}
+  </div>
+  <section class="section services-section" id="services"><div class="container"><div class="section-heading" data-aos="fade-up"><p class="eyebrow">Our Services</p><h2>Services That Strengthen Daily Life</h2><p>The Council remains committed to delivering high quality, efficient and inclusive services that meet community needs.</p></div><div class="service-grid">{% for service in services %}<article class="service-card" data-aos="fade-up">{% if service.icon %}<img src="{{ service.icon|content_image }}" alt="{{ service.name }}">{% endif %}<div class="service-card-body"><h3>{{ service.name }}</h3><p>{{ service.description }}</p></div></article>{% endfor %}</div></div></section>
+  <section class="section news-section" id="news"><div class="container"><div class="section-heading" data-aos="fade-up"><p class="eyebrow">Latest News</p><h2>Stay Informed With the Latest Developments</h2><p>From community engagement campaigns to service updates, we're committed to transparency and progress in every ward.</p></div><div class="news-grid" data-aos="fade-up">{% for article in latest_news %}{% if loop.first %}<div class="news-featured">{% if article.image_url %}<img src="{{ article.image_url|content_image }}" alt="{{ article.title }}">{% endif %}<div class="news-featured-body"><span class="news-date-label">{{ article.category }}</span><h3>{{ article.title }}</h3><p>{{ article.summary }}</p><a href="{{ url_for('news.index') }}" class="read-more">Read more <span>→</span></a></div></div><div class="news-sidebar">{% else %}<article class="news-card"><span class="news-date-label">{{ article.category }}</span><h3>{{ article.title }}</h3><p>{{ article.summary }}</p><a href="{{ url_for('news.index') }}" class="read-more">Read update <span>→</span></a></article>{% endif %}{% endfor %}{% if latest_news %}</div>{% endif %}</div></div></section>
+  <section class="cta-section" id="contact"><div class="container" data-aos="fade-up"><p class="eyebrow">Get Involved</p><h2>We value feedback from residents and stakeholders.</h2><a class="cta-btn" href="{{ url_for('contact.index') }}">Contact Us Today</a></div></section>
+</main>
+{% include 'includes/site_footer.html' %}
+{% endblock %}

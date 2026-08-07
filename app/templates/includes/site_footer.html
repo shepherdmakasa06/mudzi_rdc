@@ -1,0 +1,86 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <!-- About Column -->
+    <div class="footer-about">
+      <div class="footer-brand">
+        <img src="{{ url_for('static', filename='images/logo/mrdc.webp') }}" alt="Mudzi RDC Logo">
+        <span>Mudzi RDC</span>
+      </div>
+      <p>Committed to transparent, inclusive and sustainable local government. Serving the Mudzi community with
+        dedication and integrity.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/p/Hwedza-Rural-District-Council-100069326495005/" target="_blank"
+          aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://wa.me/263718259997?text=Hello%20Mudzi%20Rural%20District%20Council,%20I%20would%20like%20to%20make%20an%20enquiry."
+          target="_blank" aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="{{ url_for('main.payment') }}" class="footer-pay-btn">
+          <i class="fas fa-hand-holding-dollar"></i> Pay Now
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <a href="{{ url_for('main.index') }}">Home</a>
+      <a href="{{ url_for('main.governance') }}">Governance</a>
+      <a href="{{ url_for('investments.index') }}">Investment</a>
+      <a href="{{ url_for('projects.index') }}">Projects</a>
+      <a href="{{ url_for('contact.index') }}">Contact Us</a>
+    </div>
+
+    <!-- Publications -->
+    <div class="footer-col">
+      <h3>Publications</h3>
+      <a href="#">Client Charter</a>
+      <a href="#">Master Plan</a>
+      <a href="#">Annual Plan</a>
+      <a href="#">Strategic Management</a>
+      <a href="#">Ease of Doing Business</a>
+    </div>
+
+    <!-- Get in Touch -->
+    <div class="footer-col">
+      <h3>Get in Touch</h3>
+      <ul class="footer-contact">
+
+        <li>
+          <i class="fas fa-envelope"></i>
+          mudzirdc2015@gmail.com
+        </li>
+
+        <li>
+          <i class="fas fa-phone-alt"></i>
+          +263 717 769 2705
+        </li>
+
+        <li>
+          <i class="fas fa-map-marker-alt"></i>
+          Stand Number 1,
+          Kotwa Growth Point,
+          P.O. Box 90,
+          Mudzi
+        </li>
+
+        <li>
+          <i class="fas fa-clock"></i>
+          Monday – Friday
+          07:30 - 16:30
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      &copy; 2026 Mudzi Rural District Council. All Rights Reserved.
+      <span class="footer-separator">|</span>
+      Designed &amp; Developed by Shepherd Makasa
+    </div>
+  </div>
+</footer>

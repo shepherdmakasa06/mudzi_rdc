@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% set current_page = 'governance' %}
+
+{% block title %}Awards - Mudzi Rural District Council{% endblock %}
+
+{% block content %}
+{% include 'includes/site_header.html' %}
+
+<main>
+  <section class="page-header">
+    <div class="container">
+      <h1>Awards &amp; Recognition</h1>
+      <p>Celebrating the achievements and milestones of Mudzi Rural District Council.</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="section-heading" data-aos="fade-up">
+        <p class="eyebrow">Achievements</p>
+        <h2>Our Awards &amp; Accolades</h2>
+        <p>Mudzi Rural District Council has been recognized for excellence in service delivery, governance and community development.</p>
+      </div>
+
+      <div class="awards-grid">
+        {% for award in awards %}
+        <div class="award-card" data-aos="fade-up" data-aos-delay="{{ 100 + (loop.index0 % 3) * 100 }}">
+          <div class="award-icon"><i class="fas {{ award.icon or 'fa-trophy' }}"></i></div>
+          <h3>{{ award.title }}</h3>
+          <p>{{ award.description }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</main>
+
+{% include 'includes/site_footer.html' %}
+{% endblock %}
